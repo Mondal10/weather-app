@@ -39,7 +39,7 @@ function App() {
         } else {
           setErrorMsg(response.message);
         }
-      } catch (error) {
+      } catch (error: any) {
         setErrorMsg(error.message);
         throw new Error(error);
       }

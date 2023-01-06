@@ -2,8 +2,8 @@ import { useEffect, useReducer } from 'react';
 
 interface IGeolocationState {
   isLoading: boolean;
-  position: null | IGeolocationPosition;
-  error: null | Error;
+  position: null | GeolocationPosition;
+  error: null | any;
 }
 
 interface IGeolocationCoords {
@@ -16,15 +16,10 @@ interface IGeolocationCoords {
   speed: number;
 }
 
-interface IGeolocationPosition {
-  coords: IGeolocationCoords;
-  timestamp: number;
-}
-
 interface IGeolocationAction {
   type: 'error' | 'success';
   error?: GeolocationPositionError | Error;
-  position?: IGeolocationPosition;
+  position?: GeolocationPosition;
 }
 
 function geoPositionReducer(

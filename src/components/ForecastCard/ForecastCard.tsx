@@ -25,7 +25,7 @@ function ForecastCard({ coord, forecastData, setForecastData }: Props) {
         const response = await getForecast(latitude, longitude);
 
         setForecastData(response);
-      } catch (error) {
+      } catch (error: any) {
         setErrorMsg(error.message);
         throw new Error(error);
       }
