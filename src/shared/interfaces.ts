@@ -1,11 +1,28 @@
+export interface IDailyWeatherData {
+  icon: string;
+  description: string;
+  main: string;
+}
+
+export interface ICoOrdinates {
+  lon: number;
+  lat: number;
+}
+
+export interface IDailyData {
+  dt: number;
+  temp: {
+    min: number;
+    max: number;
+  };
+  weather: IDailyWeatherData[];
+}
+
 export interface IWeatherData {
   name: string;
   dt: number;
   coord: ICoOrdinates;
-  weather: {
-    icon: string;
-    description: string;
-  }[];
+  weather: IDailyWeatherData[];
   main: {
     temp: number;
     humidity: number;
@@ -22,7 +39,7 @@ export interface IWeatherData {
   timezone: number;
 }
 
-export interface ICoOrdinates {
-  lon: number;
-  lat: number;
+export interface IForecastData {
+  timezone_offset: number;
+  daily: IDailyData[];
 }

@@ -1,16 +1,17 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
-import { getWeatherByCityName } from '../../api/fetchUrls';
-import { IWeatherData } from '../../shared/interfaces';
+import { getForecast, getWeatherByCityName } from '../../api/fetchUrls';
+import { IForecastData, IWeatherData } from '../../shared/interfaces';
 import SvgIcon from '../SvgIcon';
 
 type Props = {
   setWeatherData: React.Dispatch<React.SetStateAction<IWeatherData | null>>;
   setErrorMsg: React.Dispatch<React.SetStateAction<string | null>>;
+  setForecastData: React.Dispatch<React.SetStateAction<IForecastData | null>>;
 };
 type TChangeInputElement = ChangeEvent<HTMLInputElement>;
 type TFormElement = FormEvent<HTMLFormElement>;
 
-function SearchBar({ setWeatherData, setErrorMsg }: Props) {
+function SearchBar({ setWeatherData, setErrorMsg, setForecastData }: Props) {
   const [searchVal, setSearchVal] = useState('');
 
   const onChangeHandler = (event: TChangeInputElement) => {
@@ -20,11 +21,16 @@ function SearchBar({ setWeatherData, setErrorMsg }: Props) {
   const onSubmitHandler = async (event: TFormElement) => {
     event.preventDefault();
     const cityName = searchVal;
-    const response = await getWeatherByCityName(cityName);
-    if (response.cod === 200) {
-      setWeatherData(response);
+    const cityWeatherResponse = await getWeatherByCityName(cityName);
+    if (cityWeatherResponse.cod === 200) {
+      setWeatherData(cityWeatherResponse);
+      const forcastResponse = await getForecast(
+        cityWeatherResponse.coord.lat,
+        cityWeatherResponse.coord.lon
+      );
+      setForecastData(forcastResponse);
     } else {
-      setErrorMsg(response.message);
+      setErrorMsg(cityWeatherResponse.message);
     }
 
     setSearchVal('');
