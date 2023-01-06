@@ -1,9 +1,8 @@
-.app {
+body {
   height: 100%;
 }
 
-body {
-  height: 100vh;
+.appGradient {
   background: rgb(250, 247, 254);
   background: linear-gradient(
     180deg,
