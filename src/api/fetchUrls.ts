@@ -1,6 +1,5 @@
 import { Units } from '../shared/enums';
-import { FORECAST_URL, WEATHER_URL } from './config';
-// import { VITE_WEATHER_API_KEY } from '@env';
+import { DAILY_FORECAST_URL, WEATHER_URL } from './config';
 
 const fetchData = (url: string) => {
   return fetch(url)
@@ -38,7 +37,7 @@ export const getForecast = (
   longitude: number,
   unit: string = Units.METRIC
 ) => {
-  const url = `${FORECAST_URL}lat=${latitude}&lon=${longitude}&units=${unit}&appid=${
+  const url = `${DAILY_FORECAST_URL}lat=${latitude}&lon=${longitude}&units=${unit}&appid=${
     import.meta.env.VITE_WEATHER_API_KEY
   }`;
   const result = fetchData(url);
