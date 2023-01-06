@@ -1,5 +1,8 @@
-import { WEATHER_ICONS } from '../../shared/constants';
-import { getFormattedDate, getTimefromTimeZone } from '../../shared/utils';
+import {
+  getFormattedDate,
+  getImageUrl,
+  getTimefromTimeZone,
+} from '../../shared/utils';
 import styles from './WeatherWidget.module.css';
 
 type Props = {
@@ -35,11 +38,7 @@ function WeatherWidget(props: Props) {
           temperature
         )}°`}</div>
       </div>
-      <img
-        width={250}
-        className="relative -top-14"
-        src={WEATHER_ICONS[icon as keyof typeof WEATHER_ICONS]}
-      />
+      <img width={250} className="relative -top-14" src={getImageUrl(icon)} />
     </div>
   );
 }

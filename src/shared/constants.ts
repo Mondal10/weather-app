@@ -6,58 +6,22 @@ export const COLOURS = {
 };
 
 export const WEATHER_ICONS = {
-  '01d': await import('@/assets/weatherIcons/01d.png').then(
-    (res) => res.default
-  ),
-  '01n': await import('@/assets/weatherIcons/01n.png').then(
-    (res) => res.default
-  ),
-  '02d': await import('../assets/weatherIcons/02d.png').then(
-    (res) => res.default
-  ),
-  '02n': await import('../assets/weatherIcons/02n.png').then(
-    (res) => res.default
-  ),
-  '03d': await import('../assets/weatherIcons/03dn-04dn.png').then(
-    (res) => res.default
-  ),
-  '03n': await import('../assets/weatherIcons/03dn-04dn.png').then(
-    (res) => res.default
-  ),
-  '04d': await import('../assets/weatherIcons/03dn-04dn.png').then(
-    (res) => res.default
-  ),
-  '04n': await import('../assets/weatherIcons/03dn-04dn.png').then(
-    (res) => res.default
-  ),
-  '09d': await import('../assets/weatherIcons/09dn.png').then(
-    (res) => res.default
-  ),
-  '09n': await import('../assets/weatherIcons/09dn.png').then(
-    (res) => res.default
-  ),
-  '10d': await import('../assets/weatherIcons/10d.png').then(
-    (res) => res.default
-  ),
-  '10n': await import('../assets/weatherIcons/10n.png').then(
-    (res) => res.default
-  ),
-  '11d': await import('../assets/weatherIcons/11dn.png').then(
-    (res) => res.default
-  ),
-  '11n': await import('../assets/weatherIcons/11dn.png').then(
-    (res) => res.default
-  ),
-  '13d': await import('../assets/weatherIcons/13dn.png').then(
-    (res) => res.default
-  ),
-  '13n': await import('../assets/weatherIcons/13dn.png').then(
-    (res) => res.default
-  ),
-  '50d': await import('../assets/weatherIcons/50d.png').then(
-    (res) => res.default
-  ),
-  '50n': await import('../assets/weatherIcons/50n.png').then(
-    (res) => res.default
-  ),
+  '01d': '../assets/weatherIcons/01d.png',
+  '01n': '../assets/weatherIcons/01n.png',
+  '02d': '../assets/weatherIcons/02d.png',
+  '02n': '../assets/weatherIcons/02n.png',
+  '03d': '../assets/weatherIcons/03dn-04dn.png',
+  '03n': '../assets/weatherIcons/03dn-04dn.png',
+  '04d': '../assets/weatherIcons/03dn-04dn.png',
+  '04n': '../assets/weatherIcons/03dn-04dn.png',
+  '09d': '../assets/weatherIcons/09dn.png',
+  '09n': '../assets/weatherIcons/09dn.png',
+  '10d': '../assets/weatherIcons/10d.png',
+  '10n': '../assets/weatherIcons/10n.png',
+  '11d': '../assets/weatherIcons/11dn.png',
+  '11n': '../assets/weatherIcons/11dn.png',
+  '13d': '../assets/weatherIcons/13dn.png',
+  '13n': '../assets/weatherIcons/13dn.png',
+  '50d': '../assets/weatherIcons/50d.png',
+  '50n': '../assets/weatherIcons/50n.png',
 };

@@ -1,7 +1,9 @@
-import React from 'react';
-import { WEATHER_ICONS } from '../../shared/constants';
 import { IDailyData } from '../../shared/interfaces';
-import { getFormattedDate, getTimefromTimeZone } from '../../shared/utils';
+import {
+  getFormattedDate,
+  getImageUrl,
+  getTimefromTimeZone,
+} from '../../shared/utils';
 
 type Props = {
   dailyData: IDailyData;
@@ -24,10 +26,7 @@ function ForecastRow({ dailyData, timezone }: Props) {
         }
       </div>
       <div className="flex col-span-1 justify-center gap-2">
-        <img
-          width={30}
-          src={WEATHER_ICONS[weather.icon as keyof typeof WEATHER_ICONS]}
-        />
+        <img width={30} src={getImageUrl(weather.icon)} />
         <div className="capitalize">{weather.main}</div>
       </div>
       <div className="col-span-1">{tempRange}</div>

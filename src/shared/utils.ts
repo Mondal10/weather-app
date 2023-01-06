@@ -1,3 +1,5 @@
+import { WEATHER_ICONS } from './constants';
+
 /**
  * Convert unix timestamp to date
  * @param unixTimestamp unix timestamp
@@ -99,3 +101,15 @@ export const getFormattedDate = (dateObj: Date): string => {
   const [day, month, date, year] = dateObj.toDateString().split(' ');
   return `${day}, ${month} ${date} ${year}`;
 };
+
+/**
+ * Dynamically import image of weather icon
+ * @param iconID
+ * @returns
+ */
+export function getImageUrl(iconID: string) {
+  return new URL(
+    WEATHER_ICONS[iconID as keyof typeof WEATHER_ICONS],
+    import.meta.url
+  ).href;
+}
