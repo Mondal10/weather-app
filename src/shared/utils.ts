@@ -1,5 +1,3 @@
-import { WEATHER_ICONS } from './constants';
-
 /**
  * Convert unix timestamp to date
  * @param unixTimestamp unix timestamp
@@ -108,8 +106,10 @@ export const getFormattedDate = (dateObj: Date): string => {
  * @returns
  */
 export function getImageUrl(iconID: string) {
+  const isSameIconImage = ['03d', '03n', '04d', '04n'].includes(iconID); // all this codes have same icon image
+
   return new URL(
-    WEATHER_ICONS[iconID as keyof typeof WEATHER_ICONS],
+    `../assets/weatherIcons/${isSameIconImage ? 'cloud' : iconID}.png`,
     import.meta.url
   ).href;
 }
