@@ -35,7 +35,7 @@ function ExtraInfo(props: Props) {
   const SvgWrapperStyle = 'flex justify-center items-center';
 
   return (
-    <div className="flex flex-col rounded-md text-center shadow bg-white">
+    <div className="md:w-1/3 flex flex-col rounded-md text-center shadow bg-white">
       {/* 1st Row */}
       <div className="flex flex-row justify-between p-2">
         <div className="m-2 items-center">

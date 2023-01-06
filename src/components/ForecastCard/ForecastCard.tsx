@@ -39,7 +39,7 @@ function ForecastCard({ coord, forecastData, setForecastData }: Props) {
   return (
     <>
       {forecastData ? (
-        <div className="flex flex-col rounded-md text-center shadow bg-white mt-10 py-2">
+        <div className="md:w-1/2 md:m-auto flex flex-col rounded-md text-center shadow bg-white mt-10 py-2">
           {forecastData.daily.map((data) => (
             <ForecastRow
               key={data.dt}

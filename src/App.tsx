@@ -11,6 +11,7 @@ import { useGeolocation } from './shared/hooks/useGeolocation';
 import { IForecastData, IWeatherData } from './shared/interfaces';
 import './App.css';
 import ForecastCard from './components/ForecastCard/ForecastCard';
+import ForecastLoader from './components/Loaders/ForecastLoader';
 
 function App() {
   const [errorMsg, setErrorMsg] = useState<null | string>(null);
@@ -57,32 +58,42 @@ function App() {
         setForecastData={setForecastData}
       />
       {weatherData ? (
-        <>
-          <WeatherWidget
-            cityName={weatherData.name}
-            icon={weatherData.weather[0].icon}
-            temperature={weatherData.main.temp}
-            description={weatherData.weather[0].description}
-            timezone={weatherData.timezone}
-            currentDate={weatherData.dt}
-          />
-          <ExtraInfo
-            pressure={weatherData.main.pressure}
-            windSpeed={weatherData.wind.speed}
-            windDegree={weatherData.wind.deg}
-            sunrise={weatherData.sys.sunrise}
-            sunset={weatherData.sys.sunset}
-            humidity={weatherData.main.humidity}
-            timezone={weatherData.timezone}
-          />
+        <div className="md:m-auto">
+          <div className="md:flex md:justify-evenly md:items-center">
+            <WeatherWidget
+              cityName={weatherData.name}
+              icon={weatherData.weather[0].icon}
+              temperature={weatherData.main.temp}
+              description={weatherData.weather[0].description}
+              timezone={weatherData.timezone}
+              currentDate={weatherData.dt}
+            />
+            <ExtraInfo
+              pressure={weatherData.main.pressure}
+              windSpeed={weatherData.wind.speed}
+              windDegree={weatherData.wind.deg}
+              sunrise={weatherData.sys.sunrise}
+              sunset={weatherData.sys.sunset}
+              humidity={weatherData.main.humidity}
+              timezone={weatherData.timezone}
+            />
+          </div>
           <ForecastCard
             coord={weatherData?.coord}
             forecastData={forecastData}
             setForecastData={setForecastData}
           />
-        </>
+        </div>
       ) : (
-        <WeatherInfoLoader />
+        <div className="mt-10">
+          <WeatherWidgetLoader />
+          <br />
+          <br />
+          <WeatherInfoLoader />
+          <br />
+          <br />
+          <ForecastLoader />
+        </div>
       )}
     </div>
   );

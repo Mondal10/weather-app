@@ -37,7 +37,7 @@ function SearchBar({ setWeatherData, setErrorMsg, setForecastData }: Props) {
   };
 
   return (
-    <div className="border-2 border-gray-300 rounded-full">
+    <div className="border-2 border-gray-300 rounded-full md:w-1/3 md:m-auto">
       <form className="flex" onSubmit={onSubmitHandler}>
         <SvgIcon
           wrapperStyle="flex justify-center items-center ml-2"
